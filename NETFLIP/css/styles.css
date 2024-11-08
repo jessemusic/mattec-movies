@@ -1,0 +1,113 @@
+.navbar-brand {
+    position: relative;
+}
+
+
+#logo{
+    width: 120px;
+}
+
+#mattecmovies-title{
+    color: #fff;
+    position: absolute;
+    bottom: -2px;
+    font-size: 30px;
+    left: 95px;
+    font-weight: bold;
+}
+
+#main-navbar {
+    background-color: #121212;
+}
+
+#search-form {
+    margin: 0 auto;
+    background-color: #FFF;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 180px;
+    display: flex; /* Define o layout flexível para alinhar os elementos horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+  }
+  
+ #search-form .form-control {
+    border: none;
+    width: 90%;
+    box-shadow: none;
+
+ }
+
+ #navbar {
+    width: 30%;
+    display: flex;
+    align-items: center;  
+ }
+
+.navbar-nav {
+    justify-content: flex-end;
+    width: auto; 
+    flex-grow: 1; 
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+.navbar-nav .nav-item .nav-link {
+    color: #FFF;
+    transition: .5s;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: #999;
+}
+
+/* Footer */
+#footer {
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  #social-container ul,
+  #footer-links-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #social-container li,
+  #footer-links-container li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+  
+#social-container li {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    transition: .5s;
+    line-height: 3;
+  }
+  
+#social-container li:hover {
+    background-color: #333;
+  }
+
+#social-container a,
+#footer-links-container a {
+  color: #FFF;
+  transition: .5s;
+}
+
+#social-container li i {
+  font-size: 25px;
+}
+
+#footer-links-container {
+  margin: 30px 0;
+}
+
+
+
