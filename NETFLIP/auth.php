@@ -22,27 +22,27 @@
                 </div>
                 <div class="col-md-4" id="register-container">
                     <h2>Criar Conta</h2>
-                    <form action="" method="POST">
-                        <input type="hidden" name ="type"value="register">
+                    <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
+                        <input type="hidden" name ="type" value="register">
                         <div class="form-group">
                             <label for="email">E-mail:</label>
                             <input type="email" class="form-control" name="email" id="email"  placeholder="Digite o email">
                         </div>
                         <div class="form-group">
                             <label for="name">Nome:</label>
-                            <input type="name"class="form-control" name="name" id="name"  placeholder="Digite o nome">
+                            <input type="text"class="form-control" name="name" id="name"  placeholder="Digite o nome">
                         </div>
                         <div class="form-group">
                             <label for="lastname">Sobrenome:</label>
-                            <input type="lastname" class="form-control" lastname="lastname" id="lastname"  placeholder="Digite o sobrenome">
+                            <input type="text" class="form-control" name="lastname" id="lastname"  placeholder="Digite o sobrenome">
                         </div>
                         <div class="form-group">
                             <label for="password">Senha:</label>
                             <input type="password" class="form-control" name="password" id="password"  placeholder="Digite a senha">
                         </div>
                         <div class="form-group">
-                            <label for="confirmepassword">Corfirme sua senha:</label>
-                            <input type="confirmepassword" class="form-control" name="confirmepassword" id="confirmepassword"  placeholder="Digite novamente a senha">
+                            <label for="confirmpassword">Corfirme sua senha:</label>
+                            <input type="password" class="form-control" name="confirmpassword" id="confirmpassword"  placeholder="Digite novamente a senha">
                         </div>
                         <input type="submit" class="btn card-btn" value="Registrar">
                     </form>
