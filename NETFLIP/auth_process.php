@@ -28,13 +28,24 @@
 
         if($userDao->findUserByEmail($email) === false){
 
-            echo "nenhum email encontrado no sistema";
-            exit();
+           
+            $user = new User();
+            $userToken = $user->generateToken();
+            $finalPassword = $user->gegeratePassword($password);
 
+            $user->name = $name;
+            $user->lastname = $lastname;
+            $user->email = $email;
+            $user->password = $finalPassword;
+            $user->token = $userToken;
+
+            $auth = true;
+            $userDao->createUser($user,$auth);
+
+           
         }else{
-            echo "entro email não cadastrado";
-            exit();
-            $message->setMessage("Email já cadastrado no sistema", "error", "back");
+            
+            $message->setMessage("Email já cadastrado no sistema", "error", "back");  
         }
        
 
