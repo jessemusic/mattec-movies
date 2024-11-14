@@ -2,6 +2,7 @@
 require_once("globals.php");
 require_once("database.php");
 require_once("models/Message.php");
+require_once("dao/UserDao.php");
 
 $message = new Message($BASE_URL);
 
@@ -12,6 +13,11 @@ if(!empty($flashMessage['msg'])) {
     $message->clearMessage();
     setcookie("flashMessage", json_encode($flashMessage), time() + 3600, "/");
 }
+
+$userDao = NEW UserDao($conn, $BASE_URL);
+
+$userData = $userDao->verifyToken(false);
+
 
 
 ?>
@@ -55,9 +61,28 @@ if(!empty($flashMessage['msg'])) {
 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav" >
+                   <?php if($userData): ?>
                     <li class="nav-item">
-                        <a href="<?= $BASE_URL ?>auth.php" class="nav-link">Entrar / Cadastrar</a>
+                        <a href="<?= $BASE_URL ?>newmovie.php" class="nav-link">
+                            <i class="fa fa-plus-square">Incluir Filme</i>
+                        </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= $BASE_URL ?>dashboard.php" class="nav-link">Meus Filmes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= $BASE_URL ?>editprofile.php" class="nav-link bold">
+                           <?= $userData->name ?>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= $BASE_URL ?>logout.php" class="nav-link">Sair</a>
+                    </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                        <a href="<?= $BASE_URL ?>auth.php" class="nav-link">Entrar / Cadastrar</a>
+                        </li>
+                    <?php endif;?>
                 </ul>
             </div>
         </nav>

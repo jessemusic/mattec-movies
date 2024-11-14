@@ -25,7 +25,7 @@
 
         public function buildUser($data);
         public function createUser(User $user, $authUser = false);
-        public function updateUser(User $user);
+        public function updateUser(User $user, $redirect = true);
         public function verifyToken($protected = false);
         public function setTokenToSession($token, $redirect = true);
         public function authenticationUser($email, $password);
@@ -35,5 +35,5 @@
         public function changePassword($password);
 
 
-        public function deleteUser(User $user);
+        public function destroyToken();
     }
