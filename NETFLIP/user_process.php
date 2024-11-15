@@ -60,6 +60,29 @@
         $userDao->updateUser( $userData);
 
     }else if ($type == "change_password") {
+        // $password = filter_input(INPUT_POST,"password");
+        $new_password = filter_input(INPUT_POST,"new_password");
+        $confirm_password = filter_input(INPUT_POST,"confirm_password");
+        $userData = $userDao->verifyToken();
+        $id = $userData->id;
+        // print_r($id);exit;
+
+
+        
+        if($new_password != $confirm_password){
+            $message->setMessage("As senhas não conferem!", "error", "back");
+        }else{
+            $user = new User();
+
+            $finalPassword =$user->gegeratePassword($new_password);
+            $user->password = $finalPassword;
+            $user->id = $id;
+
+            $userDao->changePassword($user);
+
+        }
+
+
 
     }else{
         $message->setMessage("Por favor, preencha todos os campos.", "error", "index.php");

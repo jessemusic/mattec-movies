@@ -53,13 +53,13 @@
             <div class="row" id="change-password-container">
                 <div class="col-md-4">
                     <h2>Alterar a senha</h2>
-                    <p class="page-description">Digite a senha atual, a nova senha, e confirme para alterar a nova senha!</p>
+                    <p class="page-description">Digite a nova senha, redigite-a logo abaixo e clique no botão para alterar!</p>
                     <form action="<?= $BASE_URL?>user_process.php" method="POST">
                         <input type="hidden" name="type" value="change_password">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="password">Senha atual:</label>
                             <input type="password" class="form-control" name="password_atual" id="password_atual" placeholder="Digite a senha atual">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="new_password">Nova senha:</label>
                             <input type="password" class="form-control" name="new_password" id="new_password" placeholder="Digite a nova senha">

@@ -41,7 +41,7 @@
         public function findUserByEmail($email);
         public function findUserById($id);
         public function findbytoken($token);
-        public function changePassword($password);
+        public function changePassword(User $user);
 
 
         public function destroyToken();
