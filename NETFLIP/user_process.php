@@ -25,15 +25,39 @@
         $userData->email =$email;
         $userData->biografia =$biografia;
 
+        $user = new User();
+
+        if(isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])){
+            
+            $image = $_FILES["image"];
+            $imageTypes =["image/jpg","image/png","image/jpeg"];
+            $jpgArray = ["image/jpg","image/jpeg"];
+
+            if(in_array($image["type"],$imageTypes)){
+
+                if(in_array($image["type"],$jpgArray)){
+                    // echo "entrou no if" ;exit;
+                    
+                    $imageFile = imagecreatefromjpeg($image["tmp_name"]);
+                }else{
+                    print_r($jpgArray);
+                    echo "entrou no else" ;exit;
+                    $imageFile = imagecreatefrompng($image["tmp_name"]);
+ 
+                }
+
+                $imageName = $user->imageGenerateName();
+
+                imagejpeg($imageFile, "./img/users/" . $imageName,100);
+
+                $userData->image = $imageName;
+
+            }else{
+                $message->setMessage("Tipo invalido de imagem, escolha jpeg/jpg/png ", "error", "back");
+            }
+        }
+
         $userDao->updateUser( $userData);
-
-
-
-
-        // print_r($userData);exit;
-
-
-
 
     }else if ($type == "change_password") {
 
