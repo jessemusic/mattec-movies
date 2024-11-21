@@ -36,7 +36,7 @@
             if(in_array($image["type"],$imageTypes)){
 
                 if(in_array($image["type"],$jpgArray)){
-                    // echo "entrou no if" ;exit;
+                    //  echo "entrou no if" ;exit;
                     
                     $imageFile = imagecreatefromjpeg($image["tmp_name"]);
                 }else{

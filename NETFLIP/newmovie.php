@@ -46,6 +46,7 @@
                         <option value="Fantasia">Fantasia</option>
                         <option value="Ficção">Ficção</option>
                         <option value="Romance">Romance</option>
+                        <option value="Infantil">Infantil</option>
                     </select>
                 </div>
                 <div class="form-group">
