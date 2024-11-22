@@ -97,14 +97,14 @@
                 }else if($protected){
                    
 
-                    $this->message->setMessage("Faça a atutenticação dos usuário!","error","index.php");
+                    $this->message->setMessage("É necessário fazer a atenticação do usuário para acessar o sistema!","error","index.php");
                 }
 
 
             }else if($protected){
                
 
-                $this->message->setMessage("Faça a atutenticação dos usuário!","error","index.php");
+                $this->message->setMessage("É necessário fazer a atenticação do usuário para acessar o sistema!","error","index.php");
             }
 
         }
