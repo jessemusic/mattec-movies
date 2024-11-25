@@ -263,6 +263,12 @@
   text-align: right;
 }
 
+#movies-dashboard thead th,
+#movies-dashboard tbody tr td {
+    background-color: #000;
+    color: #FFF;
+}
+
 #movies-dashboard .table{
   color: #FFF;
 }
