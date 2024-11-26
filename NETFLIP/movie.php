@@ -78,10 +78,10 @@ function getYouTubeEmbedUrl($url) {
                 <p class="page-description">Preencha sua avaliação do filme:</p>
                 <form action="<?= $BASE_URL ?>review_process.php" method="POST" id="review-form">
                     <input type="hidden" name="type" value="create_avaliacao">
-                    <input type="hidden" name=",movies_id" value="<?= $movie->id ?>">
+                    <input type="hidden" name="movies_id" value="<?= $movie->id ?>">
                     <div class="form-group">
                         <label for="rating">Nota do filme</label>
-                        <select name="rating" clratingss="form-control" id="rating">
+                        <select name="rating" class="form-control" id="rating">
                             <option value="">Selecione</option>
                             <option value="10">10</option>
                             <option value="9">9</option>
@@ -117,7 +117,7 @@ function getYouTubeEmbedUrl($url) {
                         <p><i class="fas fa-star"></i>9</p>
                     </div>
                     <div class="col-md-12">
-                        <p class="coment-title">Comentários:</p>
+                        <p class="comment-title">Comentários:</p>
                         <p>Este é o comentário do usuário:</p>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ function getYouTubeEmbedUrl($url) {
                         <p><i class="fas fa-star"></i>9</p>
                     </div>
                     <div class="col-md-12">
-                        <p class="coment-title">Comentários:</p>
+                        <p class="comment-title">Comentários:</p>
                         <p>Este é o comentário do usuário:</p>
                     </div>
                 </div>
