@@ -66,7 +66,7 @@
     public function findMoviesByCategory($category){
         $moviesCategory = [];
 
-        // print_r($category);exit;
+       
 
         $stmt = $this->conn->prepare("SELECT * FROM movies WHERE category = :category ORDER BY id DESC");
         $stmt->bindParam(":category", $category);
@@ -78,8 +78,10 @@
             foreach($moviesArray as $movie){
                 $moviesCategory[] = $this ->buildMovie($movie);
             }
+            // print_r($category);exit;
 
         }
+        //  print_r($category);exit;
         return $moviesCategory;
 
     }
@@ -131,5 +133,10 @@
     }
 
     public function update(Movie $movie){}
-    public function destroy($id){}
+    public function destroy($id){
+        $stmt = $this->conn->prepare("DELETE FROM movies WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $this->message->setMessage("Filme DELETADO com sucesso!","success","dashboard.php");
+    }
     }

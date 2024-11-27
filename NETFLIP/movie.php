@@ -45,6 +45,8 @@ function getYouTubeEmbedUrl($url) {
     return null; 
 }
 
+$alreadyReviewed = false;
+
 ?>
 
 <div id="main-container" class="container-fluid">
@@ -72,6 +74,8 @@ function getYouTubeEmbedUrl($url) {
         </div>
         <div class="offset-md-1 col-md-10" id="reviews-container">
             <h3 id="revies-title">Avaliações: </h3>
+            <!-- Habilita lógica de usuário válido -->
+             <?php if(!empty(($userData) && !$userQwnersMovie && !$alreadyReviewed)): ?>
 
             <div class="col-md-12" id="review-form-container">
                 <h4>Envie sua avaliação:</h4>
@@ -104,6 +108,7 @@ function getYouTubeEmbedUrl($url) {
 
                 </form>
             </div>
+            <?php endif; ?>
             <!-- review lógica -->
             <div class="col md-12 review">
                 <div class="row">
