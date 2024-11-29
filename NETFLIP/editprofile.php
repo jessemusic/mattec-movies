@@ -12,7 +12,7 @@
     $fullName = $user->getFullName($userData);
 
     if($userData->image == ""){
-        $userData->image = "user.png";
+        $userData->image = "user.jpg";
     }
 ?>
     <div id="main-container" class="container-fluid edit-profile-page">
