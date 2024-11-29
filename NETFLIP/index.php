@@ -11,6 +11,11 @@
     $dramaMovies = $movieDao->findMoviesByCategory("Drama");
     $fantasiaMovies = $movieDao->findMoviesByCategory("Fantasia");
     $infantilMovies = $movieDao->findMoviesByCategory("Infantil");
+    $ficcaoMovies = $movieDao->findMoviesByCategory("Ficção");
+    $aventuraMovies = $movieDao->findMoviesByCategory("Aventura");
+    $ficcaocientificaMovies = $movieDao->findMoviesByCategory("Ficção Científica");
+    $romanceMovies = $movieDao->findMoviesByCategory("Romance");
+    $terrorMovies = $movieDao->findMoviesByCategory("Terror");
 
 
 ?>
@@ -89,6 +94,50 @@
         <?php endforeach;?>
         <?php if(count($infantilMovies) === 0):?>
             <p class="empty-list-films">Nenhum filme de Infantil adicionado ainda.</p>
+            <?php endif;?>
+        </div>
+
+        <h2 class="section-title">Ficção</h2>
+        <P class="section-descriptions">Filmes de Ficção inesquecíveis </P>
+        <div class="movies-container">
+        <?php foreach ($ficcaoMovies as $movie):?>
+            <?php require("templates/movie_card.php"); ?>
+        <?php endforeach;?>
+        <?php if(count($ficcaoMovies) === 0):?>
+            <p class="empty-list-films">Nenhum filme de Ficção adicionado ainda.</p>
+            <?php endif;?>
+        </div>
+
+        <h2 class="section-title">Aventura</h2>
+        <P class="section-descriptions">Filmes de Aventura inesquecíveis </P>
+        <div class="movies-container">
+        <?php foreach ($aventuraMovies as $movie):?>
+            <?php require("templates/movie_card.php"); ?>
+        <?php endforeach;?>
+        <?php if(count($aventuraMovies) === 0):?>
+            <p class="empty-list-films">Nenhum filme de Aventura adicionado ainda.</p>
+            <?php endif;?>
+        </div>
+
+        <h2 class="section-title">Ficção Científica</h2>
+        <P class="section-descriptions">Filmes de Ficção Científica inesquecíveis </P>
+        <div class="movies-container">
+        <?php foreach ($ficcaocientificaMovies as $movie):?>
+            <?php require("templates/movie_card.php"); ?>
+        <?php endforeach;?>
+        <?php if(count($ficcaocientificaMovies) === 0):?>
+            <p class="empty-list-films">Nenhum filme de Ficção Científica adicionado ainda.</p>
+            <?php endif;?>
+        </div>
+
+        <h2 class="section-title">Terror</h2>
+        <P class="section-descriptions">Filmes de Terror inesquecíveis </P>
+        <div class="movies-container">
+        <?php foreach ($terrorMovies as $movie):?>
+            <?php require("templates/movie_card.php"); ?>
+        <?php endforeach;?>
+        <?php if(count($terrorMovies) === 0):?>
+            <p class="empty-list-films">Nenhum filme de Terror adicionado ainda.</p>
             <?php endif;?>
         </div>
     </div>
