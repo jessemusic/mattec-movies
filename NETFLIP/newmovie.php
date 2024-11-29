@@ -8,6 +8,8 @@
     $userDao = new UserDao($conn, $BASE_URL);
 
     $userData = $userDao->verifyToken(true);
+
+
 ?>
     <div id="main-container" class="container-fluid">
         <div class="offset-md-4 col-md-4 new-movie-countainer">
@@ -17,7 +19,7 @@
                 <input type="hidden" name="type" value="create_filme">
                 <div class="form-group">
                     <label for="title">Título:</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Digite o título do filme">
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Digite o título do filme" >
                 </div>
                 <div class="form-group">
                     <label for="director">Diretor:</label>
@@ -48,6 +50,9 @@
                         <option value="Romance">Romance</option>
                         <option value="Infantil">Infantil</option>
                         <option value="Suspense">Suspense</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Ficção Científica">Ficção Científica</option>
                     </select>
                 </div>
                 <div class="form-group">
