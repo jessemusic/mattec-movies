@@ -132,7 +132,33 @@
        
     }
 
-    public function update(Movie $movie){}
+    public function update(Movie $movie){
+        // echo"Estamos no DAO <br>";
+        // print_r($movie);
+        // echo"<br>vamos começar, já estamos no DAO";exit;
+        $stmt = $this->conn->prepare("UPDATE movies SET 
+        title = :title,
+        description = :description,
+        image = :image,
+        trailer = :trailer,
+        category = :category,
+        length = :length,
+        director = :director,
+        release_date = :release_date  WHERE id = :id");
+        $stmt->bindParam(":title",$movie->title);
+        $stmt->bindParam(":description",$movie->description);
+        $stmt->bindParam(":image",$movie->image);
+        $stmt->bindParam(":trailer",$movie->trailer);
+        $stmt->bindParam(":category",$movie->category);
+        $stmt->bindParam(":length",$movie->length);
+        $stmt->bindParam(":director",$movie->director);
+        $stmt->bindParam(":release_date",$movie->release_date);
+        $stmt->bindParam(":id",$movie->id);
+        $stmt->execute();
+
+        $this->message->setMessage("Filme ATUALIZADO com sucesso!","success","dashboard.php");
+
+    }
     public function destroy($id){
         $stmt = $this->conn->prepare("DELETE FROM movies WHERE id = :id");
         $stmt->bindParam(":id", $id);

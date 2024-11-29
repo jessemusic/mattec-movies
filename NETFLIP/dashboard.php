@@ -41,7 +41,7 @@
                         <td><a href="<?= $BASE_URL ?>movie.php?id=<?= $movie->id ?>" class="table-movie-title"><?= $movie->title ?></a></td>
                         <td><i class="fas fa-star"></i>10</td>
                         <td class="actions-column">
-                            <a href="<?= $BASE_URL ?>movie.php?id=<?= $movie->id ?>" class="edit-btn">
+                            <a href="<?= $BASE_URL ?>edit_movie.php?id=<?= $movie->id ?>" class="edit-btn">
                                 <i class="far fa-edit"></i>Editar
                             </a>
                             <form action="<?= $BASE_URL ?>movie_process.php" method="POST">
