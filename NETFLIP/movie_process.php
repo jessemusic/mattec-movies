@@ -59,8 +59,6 @@
                     }
                 $imageName = $movie->imageGenerateName();
 
-                // print_r("image é --> $imageName");exit;
-
                 imagejpeg($imageFile, "./img/movies/" .$imageName, 100);
 
                 $movie->image = $imageName;
@@ -70,7 +68,6 @@
                 }
             }
 
-        // print_r($_POST); print_r($_FILES);exit;
             $movieDao->create($movie);
 
         }else{
@@ -110,28 +107,11 @@
         $id = filter_input(INPUT_POST,"id");
 
         $movieData= $movieDao->findById($id);
-
-        // echo "title --> $title <br>";
-        // echo "description -->  $description <br>";
-        // echo "trailer -->  $trailer <br>";
-        // echo "image -->  $image <br>";exit;
-        // echo "category -->  $category <br>";
-        // echo "director -->  $director <br>";
-        // echo "release_date -->  $release_date <br>";
-        // echo "length -->  $length <br>";
-        // echo "id -->  $id <br>";exit;
-
-        // echo "users_id,  validação!!! $movieData->users_id <br>";
-        // echo "userData,  validação!!! $userData->id";exit;
-
         if($image === "" || $image == null && $movieData->image){
             $image = $movieData->image;
-            // echo "tem imagem no banco, manter a imagem!!";exit;
         }
 
         if($movieData->users_id === $userData->id) {
-            //  echo "é filme do usuário,  validação!!!";exit;
-
             if(!empty($title) &&
             !empty($description) &&
             !empty($trailer ) &&
@@ -141,8 +121,6 @@
             !empty($length) &&
             !empty($id)
             ){
-               //  echo "passou na validação!!!";exit;
-   
                $movieData->title =$title;
                $movieData->description =$description;
                $movieData->trailer =$trailer;
@@ -159,8 +137,6 @@
                    $imageTypes =["image/jpg","image/png","image/jpeg"];
                    $jpgArray = ["image/jpg","image/jpeg"];
 
-                //    echo"chegou aqui agora";exit;
-   
                    if(in_array($image["type"], $imageTypes)){
    
                        if(in_array($image["type"], $jpgArray)){
@@ -168,11 +144,8 @@
                        }else{
                            $imageFile = imagecreatefrompng($image["tmp_name"]);
                        }
-                            //    print_r("image é --> $movie");exit;
                         $movie = new Movie();
                         $imageName = $movie->imageGenerateName();
-        
-                        // print_r("image é --> $imageName");exit;
         
                         imagejpeg($imageFile, "./img/movies/" .$imageName, 100);
         
@@ -181,30 +154,18 @@
                    }else{
                        $message->setMessage("Tipo de imagem inválido", "error", "back");
                    }
-                //    echo"agora chegou aqui agora";exit;
                }
-            //    echo"estamos nos preparando para a gravação <br>";exit;
-   
-        //    print_r($_POST); print_r($_FILES);exit;
-                // print_r($movieData);exit;
+
                $movieDao->update($movieData);
    
            }else{
                $message->setMessage("É necessários adicionar todos os dados! ", "error", "back");
-   
            }
-   
-   
-        //    print_r("Estou aqui *** <br>");
-        //    print_r($movieData->id);exit;
-        //    $message->setMessage("Informações inválidas", "error", "index.php");
-
 
         }else{
             print_r("Não permitido, não é filme do usuário atual! *** <br>");
             $message->setMessage("Não permitido, não é filme do usuário atual!", "error", "back");
         }
-
        
     }else{
         $message->setMessage("Informações inválidas", "error", "index.php");

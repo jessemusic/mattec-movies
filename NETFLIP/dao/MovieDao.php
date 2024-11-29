@@ -57,7 +57,6 @@
         if($stmt->rowCount() >0){
             $movieData = $stmt->fetch();
             $movie = $this->buildMovie($movieData);
-            // print_r($movie);exit;
             return $movie;
         }else{
             return false;
@@ -78,18 +77,14 @@
             foreach($moviesArray as $movie){
                 $moviesCategory[] = $this ->buildMovie($movie);
             }
-            // print_r($category);exit;
 
         }
-        //  print_r($category);exit;
         return $moviesCategory;
 
     }
     public function findMoviesByUserId($id){
 
         $moviesId = [];
-
-        // print_r($category);exit;
 
         $stmt = $this->conn->prepare("SELECT * FROM movies WHERE users_id = :users_id");
         $stmt->bindParam(":users_id", $id);
@@ -133,9 +128,7 @@
     }
 
     public function update(Movie $movie){
-        // echo"Estamos no DAO <br>";
-        // print_r($movie);
-        // echo"<br>vamos começar, já estamos no DAO";exit;
+
         $stmt = $this->conn->prepare("UPDATE movies SET 
         title = :title,
         description = :description,
