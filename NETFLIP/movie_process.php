@@ -163,7 +163,7 @@
            }
 
         }else{
-            print_r("Não permitido, não é filme do usuário atual! *** <br>");
+            // print_r("Não permitido, não é filme do usuário atual! *** <br>");
             $message->setMessage("Não permitido, não é filme do usuário atual!", "error", "back");
         }
        
